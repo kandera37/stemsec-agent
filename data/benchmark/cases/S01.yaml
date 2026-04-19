@@ -1,0 +1,8 @@
+id: S01
+framework: flask
+title: Parameterized SQL query
+is_safe: true
+ambiguous: false
+expected_findings: []
+severity: {}
+short_rationale: Although the code interacts with SQL, it uses parameterized queries correctly and should not be flagged as SQL injection.

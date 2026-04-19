@@ -1,0 +1,10 @@
+id: A08
+framework: fastapi
+title: User reads invoice by arbitrary ID
+is_safe: false
+ambiguous: false
+expected_findings:
+  - idor
+severity:
+  idor: high
+short_rationale: The endpoint allows access to an object by identifier without verifying that the requesting user owns or is allowed to access it.

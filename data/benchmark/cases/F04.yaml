@@ -1,0 +1,10 @@
+id: F04
+framework: flask
+title: Ping endpoint using shell command
+is_safe: false
+ambiguous: false
+expected_findings:
+  - command_injection
+severity:
+  command_injection: critical
+short_rationale: Untrusted input is passed into shell command execution, creating a command injection risk.

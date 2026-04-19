@@ -1,0 +1,10 @@
+id: A06
+framework: fastapi
+title: User expression executed with eval
+is_safe: false
+ambiguous: false
+expected_findings:
+  - unsafe_eval
+severity:
+  unsafe_eval: critical
+short_rationale: Attacker-controlled input is passed directly into eval, enabling arbitrary code execution.

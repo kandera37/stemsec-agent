@@ -1,0 +1,10 @@
+id: F05
+framework: flask
+title: Delete endpoint with only login check
+is_safe: false
+ambiguous: false
+expected_findings:
+  - broken_access_control
+severity:
+  broken_access_control: high
+short_rationale: The endpoint checks whether the user is logged in, but does not verify ownership or authorization for the target resource.

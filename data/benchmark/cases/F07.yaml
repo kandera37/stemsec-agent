@@ -1,0 +1,10 @@
+id: F07
+framework: flask
+title: Redirect using next parameter
+is_safe: false
+ambiguous: false
+expected_findings:
+  - open_redirect
+severity:
+  open_redirect: medium
+short_rationale: The redirect target is taken from user-controlled input without sufficient validation or allowlisting.

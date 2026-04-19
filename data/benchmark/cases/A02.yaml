@@ -1,0 +1,10 @@
+id: A02
+framework: fastapi
+title: Fetch remote URL from request body
+is_safe: false
+ambiguous: false
+expected_findings:
+  - ssrf
+severity:
+  ssrf: high
+short_rationale: The server performs an outbound request to an attacker-controlled URL without sufficient restriction or validation.

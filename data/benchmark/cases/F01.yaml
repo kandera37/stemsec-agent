@@ -1,0 +1,10 @@
+id: F01
+framework: flask
+title: Login query built with f-string
+is_safe: false
+ambiguous: false
+expected_findings:
+  - sql_injection
+severity:
+  sql_injection: high
+short_rationale: User-controlled input is directly interpolated into a SQL query string in a login-related flow.

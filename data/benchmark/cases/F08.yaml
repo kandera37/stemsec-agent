@@ -1,0 +1,10 @@
+id: F08
+framework: flask
+title: Upload endpoint saves file directly
+is_safe: false
+ambiguous: false
+expected_findings:
+  - insecure_file_upload
+severity:
+  insecure_file_upload: high
+short_rationale: Uploaded files are accepted and stored without robust validation of filename, type, extension, or destination path.

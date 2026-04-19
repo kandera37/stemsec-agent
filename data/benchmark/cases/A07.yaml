@@ -1,0 +1,10 @@
+id: A07
+framework: fastapi
+title: Debug endpoint returns config and environment
+is_safe: false
+ambiguous: false
+expected_findings:
+  - sensitive_config_exposure
+severity:
+  sensitive_config_exposure: medium
+short_rationale: Internal configuration and environment details are exposed through an endpoint, which may reveal sensitive operational information.

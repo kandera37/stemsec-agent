@@ -1,0 +1,10 @@
+id: S04
+framework: fastapi
+title: Mixed snippet with one real issue and one safe pattern
+is_safe: false
+ambiguous: true
+expected_findings:
+  - path_traversal
+severity:
+  path_traversal: high
+short_rationale: The snippet contains one real vulnerability together with another suspicious-looking but actually safe construct, testing whether the agent can separate true signal from noise.

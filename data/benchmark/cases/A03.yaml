@@ -1,0 +1,10 @@
+id: A03
+framework: fastapi
+title: Admin stats endpoint without proper auth
+is_safe: false
+ambiguous: false
+expected_findings:
+  - broken_access_control
+severity:
+  broken_access_control: high
+short_rationale: A privileged endpoint exposes administrative data without enforcing proper authentication or role-based authorization.

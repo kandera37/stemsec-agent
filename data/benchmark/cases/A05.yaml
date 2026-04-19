@@ -1,0 +1,10 @@
+id: A05
+framework: fastapi
+title: Authorization token written to logs
+is_safe: false
+ambiguous: false
+expected_findings:
+  - sensitive_data_exposure
+severity:
+  sensitive_data_exposure: medium
+short_rationale: Sensitive authentication material is logged in plaintext, increasing the risk of token leakage.

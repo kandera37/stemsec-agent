@@ -1,0 +1,10 @@
+id: A01
+framework: fastapi
+title: Search endpoint with raw SQL
+is_safe: false
+ambiguous: false
+expected_findings:
+  - sql_injection
+severity:
+  sql_injection: high
+short_rationale: Request input is concatenated into a raw SQL query string rather than passed through safe parameterization.

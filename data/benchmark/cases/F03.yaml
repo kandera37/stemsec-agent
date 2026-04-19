@@ -1,0 +1,10 @@
+id: F03
+framework: flask
+title: File download by filename from query param
+is_safe: false
+ambiguous: false
+expected_findings:
+  - path_traversal
+severity:
+  path_traversal: high
+short_rationale: A filename from request parameters is used in file access logic without proper path sanitization.

@@ -1,0 +1,10 @@
+id: F06
+framework: flask
+title: Hardcoded app secret key
+is_safe: false
+ambiguous: false
+expected_findings:
+  - hardcoded_secret
+severity:
+  hardcoded_secret: medium
+short_rationale: A sensitive application secret is embedded directly in source code instead of being loaded securely from configuration or environment.

@@ -1,0 +1,10 @@
+id: A04
+framework: fastapi
+title: HTML response contains raw user input
+is_safe: false
+ambiguous: false
+expected_findings:
+  - xss
+severity:
+  xss: medium
+short_rationale: User-controlled input is reflected into an HTML response without safe escaping, creating an XSS risk.

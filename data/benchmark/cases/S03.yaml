@@ -1,0 +1,8 @@
+id: S03
+framework: fastapi
+title: Escaped HTML rendering with suspicious-looking input
+is_safe: true
+ambiguous: true
+expected_findings: []
+severity: {}
+short_rationale: The snippet may look risky because user input appears in an HTML-like context, but escaping or safe rendering should make it non-exploitable.

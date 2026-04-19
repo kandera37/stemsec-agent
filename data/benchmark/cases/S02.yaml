@@ -1,0 +1,8 @@
+id: S02
+framework: flask
+title: Redirect only to internal allowlisted paths
+is_safe: true
+ambiguous: false
+expected_findings: []
+severity: {}
+short_rationale: The redirect target is restricted to predefined internal destinations, so this should not be treated as an open redirect.
