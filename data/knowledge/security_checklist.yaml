@@ -1,0 +1,63 @@
+categories:
+  - name: authentication_authorization
+    description: Check whether the endpoint enforces authentication and correct authorization for the requested resource.
+    review_questions:
+      - Is authentication required where it should be?
+      - Is role or ownership verified before accessing or modifying data?
+      - Can a user access another user's object by changing an identifier?
+
+  - name: input_handling
+    description: Check whether untrusted input is validated, sanitized, or constrained before use.
+    review_questions:
+      - Is user input passed into sensitive sinks without validation?
+      - Are filenames, paths, URLs, or commands derived from untrusted input?
+      - Is the input type or format restricted where needed?
+
+  - name: database_interaction
+    description: Check whether database queries are built safely.
+    review_questions:
+      - Is SQL built through string interpolation or concatenation?
+      - Are parameterized queries used?
+      - Can user input change query structure?
+
+  - name: output_rendering
+    description: Check whether user-controlled data is rendered into HTML or templates safely.
+    review_questions:
+      - Is user input reflected into HTML?
+      - Is escaping handled correctly?
+      - Could the response allow script execution in the browser?
+
+  - name: file_handling
+    description: Check whether file operations are safe.
+    review_questions:
+      - Can user input influence file paths?
+      - Are uploaded files validated before saving?
+      - Is path traversal possible?
+
+  - name: command_execution
+    description: Check whether external commands or dangerous runtime execution are used safely.
+    review_questions:
+      - Is shell execution used with untrusted input?
+      - Is eval or exec used on attacker-controlled data?
+      - Can user input influence command arguments unsafely?
+
+  - name: outbound_requests
+    description: Check whether the server makes external requests based on user input.
+    review_questions:
+      - Can the user control the target URL?
+      - Is there an allowlist or restriction on outbound destinations?
+      - Could internal services be reached indirectly?
+
+  - name: secrets_and_sensitive_data
+    description: Check whether secrets or sensitive data are exposed or mishandled.
+    review_questions:
+      - Are secrets hardcoded in source code?
+      - Are tokens, credentials, or private data logged?
+      - Are config or environment values exposed through endpoints?
+
+  - name: redirects_and_navigation
+    description: Check whether redirects are constrained to safe destinations.
+    review_questions:
+      - Is redirect target derived from user input?
+      - Is there validation or allowlisting for redirect destinations?
+      - Could this enable open redirect behavior?
