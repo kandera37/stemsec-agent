@@ -1,1 +1,7 @@
 pyyaml
+flask
+fastapi
+pydantic
+requests
+openai
+python-dotenv
