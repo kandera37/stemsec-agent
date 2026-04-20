@@ -12,3 +12,18 @@ class BenchmarkCase:
     expected_findings: List[str]
     severity: Dict[str, str]
     short_rationale: str
+
+
+@dataclass
+class Finding:
+    type: str
+    severity: str
+    confidence: str
+    evidence: str
+    recommendation: str
+
+
+@dataclass
+class AgentOutput:
+    findings: List[Finding]
+    summary: str
