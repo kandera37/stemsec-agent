@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "Information Exposure",
+      "severity": "Medium",
+      "confidence": "High",
+      "evidence": "The endpoint returns raw database rows directly as JSON without any serialization or filtering.",
+      "recommendation": "Serialize database rows into a safe JSON format, exposing only necessary fields to avoid leaking sensitive data."
+    }
+  ],
+  "summary": "The code uses parameterized queries correctly, preventing SQL injection. However, it returns raw database rows directly, which may expose sensitive information. Proper serialization and filtering of output is recommended."
+}

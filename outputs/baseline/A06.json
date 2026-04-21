@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "Code Injection",
+      "severity": "High",
+      "confidence": "High",
+      "evidence": "The code uses eval() directly on user-supplied input (payload.expression) without any sanitization or validation.",
+      "recommendation": "Avoid using eval() on untrusted input. Use a safe expression parser or evaluator library designed for mathematical expressions, such as 'asteval' or 'numexpr'. Alternatively, implement a custom parser that only allows safe operations."
+    }
+  ],
+  "summary": "The use of eval() on user input allows arbitrary code execution, posing a critical security risk. This should be replaced with a safe evaluation method."
+}

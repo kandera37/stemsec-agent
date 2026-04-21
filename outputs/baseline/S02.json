@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "Open Redirect",
+      "severity": "Medium",
+      "confidence": "High",
+      "evidence": "The 'next' parameter is checked only against a small set of allowed paths, but the check is a simple string equality against ALLOWED_PATHS. If an attacker can craft a URL with a 'next' parameter that matches exactly one of these paths, the redirect will occur. However, since only exact matches are allowed, arbitrary redirects are prevented.",
+      "recommendation": "Ensure that the 'next' parameter is strictly validated and consider using a safer method such as generating tokens for allowed redirects or using relative URLs only. Also, consider normalizing the URL to prevent bypasses via URL encoding or trailing slashes."
+    }
+  ],
+  "summary": "The code attempts to prevent open redirect vulnerabilities by restricting redirects to a predefined set of paths. However, the validation is a simple string equality check which may be insufficient if URL normalization or encoding tricks are used. Additional validation or normalization is recommended to fully prevent open redirect attacks."
+}

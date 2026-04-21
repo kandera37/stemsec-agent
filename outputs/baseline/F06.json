@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "Hardcoded Secret Key",
+      "severity": "Medium",
+      "confidence": "High",
+      "evidence": "app.secret_key = \"super_secret_123\"",
+      "recommendation": "Do not hardcode secret keys in source code. Use environment variables or secure configuration management to set secret keys."
+    }
+  ],
+  "summary": "The application uses a hardcoded secret key, which can lead to security risks if the source code is exposed. It is recommended to manage secret keys securely outside the codebase."
+}

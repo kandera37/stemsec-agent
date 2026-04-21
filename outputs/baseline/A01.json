@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "SQL Injection",
+      "severity": "high",
+      "confidence": "high",
+      "evidence": "The SQL query is constructed using string interpolation with user input 'q' directly inserted into the query: query = f\"SELECT * FROM products WHERE name LIKE '%{q}%'\"",
+      "recommendation": "Use parameterized queries to safely include user input, e.g., cursor.execute(\"SELECT * FROM products WHERE name LIKE ?\", ('%' + q + '%',))"
+    }
+  ],
+  "summary": "The code is vulnerable to SQL injection because user input is directly interpolated into the SQL query string without sanitization or parameterization."
+}

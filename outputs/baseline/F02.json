@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "Cross-Site Scripting (XSS)",
+      "severity": "High",
+      "confidence": "High",
+      "evidence": "The code uses render_template_string with an f-string that directly injects user input (query) into HTML without escaping.",
+      "recommendation": "Avoid using render_template_string with unescaped user input. Use Flask's render_template with proper templates or escape the user input before rendering."
+    }
+  ],
+  "summary": "The code is vulnerable to reflected XSS because user input is directly embedded into an HTML template string without escaping."
+}

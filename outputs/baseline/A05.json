@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "Information Exposure",
+      "severity": "Low",
+      "confidence": "High",
+      "evidence": "The code logs the full Authorization header value using logger.info(\"Authorization header: %s\", authorization).",
+      "recommendation": "Avoid logging sensitive information such as Authorization headers. If logging is necessary, mask or omit sensitive parts to prevent credential leakage."
+    }
+  ],
+  "summary": "The code logs the Authorization header, which may expose sensitive credentials in logs. This can lead to information disclosure if logs are accessed by unauthorized parties."
+}

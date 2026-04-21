@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "Missing Authentication/Authorization",
+      "severity": "High",
+      "confidence": "High",
+      "evidence": "The /admin/stats endpoint exposes sensitive administrative data without any authentication or authorization checks.",
+      "recommendation": "Implement proper authentication and authorization mechanisms to restrict access to this endpoint only to authorized admin users."
+    }
+  ],
+  "summary": "The /admin/stats endpoint exposes sensitive administrative data without any access control, leading to potential information disclosure to unauthorized users."
+}

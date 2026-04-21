@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "Server-Side Request Forgery (SSRF)",
+      "severity": "high",
+      "confidence": "high",
+      "evidence": "The endpoint fetches a URL provided directly by the user without any validation or filtering: requests.get(payload.url, timeout=5).",
+      "recommendation": "Implement strict validation or allowlist of URLs or domains to prevent requests to internal or sensitive network resources. Consider using URL parsing and network controls to block private IP ranges."
+    }
+  ],
+  "summary": "The code is vulnerable to SSRF attacks because it fetches arbitrary URLs supplied by the user without validation, potentially allowing attackers to access internal services or sensitive resources."
+}

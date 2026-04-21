@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "Cross-Site Scripting (XSS)",
+      "severity": "High",
+      "confidence": "High",
+      "evidence": "The 'name' query parameter is directly embedded into the HTML response without any sanitization or escaping.",
+      "recommendation": "Escape or sanitize the 'name' parameter before including it in the HTML response to prevent XSS attacks. Alternatively, use templating engines that auto-escape content."
+    }
+  ],
+  "summary": "The code directly inserts user input into an HTML response without sanitization, leading to a high risk of reflected XSS attacks."
+}

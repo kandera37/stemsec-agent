@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "SQL Injection",
+      "severity": "high",
+      "confidence": "high",
+      "evidence": "The code constructs an SQL query by directly embedding user input (username and password) into the query string without parameterization: query = f\"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'\"",
+      "recommendation": "Use parameterized queries or prepared statements to safely include user input in SQL queries, e.g., cursor.execute(\"SELECT * FROM users WHERE username = ? AND password = ?\", (username, password))"
+    }
+  ],
+  "summary": "The code is vulnerable to SQL injection due to unsafe string formatting of user inputs in the SQL query. This can allow attackers to bypass authentication or execute arbitrary SQL commands."
+}

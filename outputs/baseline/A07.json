@@ -1,0 +1,19 @@
+{
+  "findings": [
+    {
+      "type": "Information Exposure",
+      "severity": "High",
+      "confidence": "High",
+      "evidence": "The /debug/config endpoint returns the entire environment variables dictionary, which may contain sensitive information such as secrets, API keys, and credentials.",
+      "recommendation": "Remove or restrict access to the /debug/config endpoint in production environments. Avoid exposing full environment variables to clients. If debugging information is needed, sanitize and limit the data returned."
+    },
+    {
+      "type": "Debug Mode Exposure",
+      "severity": "Medium",
+      "confidence": "High",
+      "evidence": "The endpoint returns a 'debug': True flag, which may indicate the application is running in debug mode, potentially exposing sensitive internal information.",
+      "recommendation": "Do not expose debug flags or internal state information in API responses accessible to clients."
+    }
+  ],
+  "summary": "The /debug/config endpoint exposes sensitive environment variables and debug information, posing a significant security risk. It should be removed or properly secured to prevent information leakage."
+}

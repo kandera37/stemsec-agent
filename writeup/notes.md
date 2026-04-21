@@ -104,3 +104,34 @@ It is about building a narrow stem agent that becomes specialized for one class 
 - own benchmark
 - structured evaluation
 - honest discussion of failures and limitations
+
+## Baseline run observations
+
+The baseline reviewer was run on all 20 benchmark cases and produced structured JSON outputs for each snippet.
+
+### What worked
+The baseline already performs reasonably well on many obvious vulnerable cases. It correctly identifies issues such as SQL injection, SSRF, XSS, IDOR, command injection, hardcoded secrets, and path traversal in multiple benchmark snippets. This confirms that the benchmark is workable and that the baseline is not trivial or non-functional.
+
+### Main weaknesses observed
+At the same time, the baseline shows several important weaknesses that make specialization meaningful:
+
+1. **Inconsistent vulnerability naming**
+   The model often uses natural-language labels such as "SQL Injection", "Cross-Site Scripting (XSS)", or "Authorization Bypass" instead of the fixed benchmark taxonomy.
+
+2. **False positives on safe or borderline cases**
+   The baseline sometimes reports extra findings that are not part of the intended ground truth. This is especially visible on safe or mixed cases, where it tends to over-flag suspicious-looking code.
+
+3. **Overreporting secondary issues**
+   On some cases, the baseline identifies the main intended vulnerability correctly but also adds secondary findings that are not central to the benchmark design.
+
+4. **Severity inconsistency**
+   The baseline does not always match the intended severity labels, especially on medium-severity cases and borderline patterns.
+
+### Why this is useful
+These weaknesses are exactly what makes the specialization stage meaningful. The baseline is strong enough to solve obvious cases, but weak enough to justify improvements in:
+- structured review discipline
+- taxonomy consistency
+- false positive control
+- severity calibration
+
+This supports the main project hypothesis: a generic reviewer can be improved by specializing it into a more structured web-security reviewer.
