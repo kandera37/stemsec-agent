@@ -4,9 +4,16 @@
       "type": "broken_access_control",
       "severity": "high",
       "confidence": "high",
-      "evidence": "The endpoint deletes a post by post_id without verifying that the logged-in user owns the post.",
-      "recommendation": "Verify that the user_id in session matches the owner_id of the post before allowing deletion to prevent unauthorized access."
+      "evidence": "The endpoint deletes a post by post_id without verifying that the session user_id matches the post's owner_id.",
+      "recommendation": "Verify that the authenticated user owns the post before allowing deletion to prevent unauthorized access to other users' posts."
+    },
+    {
+      "type": "idor",
+      "severity": "high",
+      "confidence": "high",
+      "evidence": "The post_id is taken from user input and used directly to delete posts without ownership checks, allowing users to delete posts they do not own.",
+      "recommendation": "Implement ownership checks to ensure users can only delete their own posts, preventing Insecure Direct Object References."
     }
   ],
-  "summary": "The code lacks proper authorization checks on the delete_post endpoint, allowing any authenticated user to delete any post by specifying its post_id. This constitutes broken access control."
+  "summary": "The code lacks authorization checks to ensure that only the owner of a post can delete it, leading to broken access control and IDOR vulnerabilities."
 }

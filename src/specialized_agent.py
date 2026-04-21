@@ -5,7 +5,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from openai import OpenAI
 
-from prompts import SPECIALIZED_SYSTEM_PROMPT, CRITIC_SYSTEM_PROMPT
+from prompts import SPECIALIZED_SYSTEM_PROMPT, CRITIC_SYSTEM_PROMPT, SEVERITY_RUBRIC
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 ENV_PATH = ROOT_DIR / ".env"
@@ -35,6 +35,7 @@ Code:
 ```python
 {code}
 ```
+
 Return JSON only.
 """.strip()
 
@@ -48,9 +49,14 @@ Code:
 ```
 
 Draft findings:
+
 ```json
 {draft_json}
 ```
+
+Use the following severity rubric when validating or correcting severity labels:
+
+{SEVERITY_RUBRIC}
 
 Please remove unsupported findings, keep supported ones, normalize labels to the allowed taxonomy, and improve severity consistency.
 

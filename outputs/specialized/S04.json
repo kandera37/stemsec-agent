@@ -4,9 +4,16 @@
       "type": "path_traversal",
       "severity": "high",
       "confidence": "high",
-      "evidence": "The 'file' parameter from user input is directly joined with BASE_DIR and used to open a file without validation or sanitization, allowing path traversal (e.g., file='../../etc/passwd').",
-      "recommendation": "Validate and sanitize the 'file' parameter to prevent path traversal, for example by restricting to a whitelist of allowed filenames or ensuring the resolved path is within BASE_DIR."
+      "evidence": "The 'file' query parameter is used directly in os.path.join(BASE_DIR, file) without validation, allowing potential path traversal (e.g., file='../../etc/passwd').",
+      "recommendation": "Validate and sanitize the 'file' parameter to prevent path traversal, for example by restricting to a whitelist of filenames or ensuring the resolved path is within BASE_DIR."
+    },
+    {
+      "type": "broken_access_control",
+      "severity": "high",
+      "confidence": "high",
+      "evidence": "The endpoint accepts a 'user_id' parameter and returns reports for that user without any authentication or authorization checks, allowing any caller to access any user's reports by specifying their user_id.",
+      "recommendation": "Enforce authentication and verify that the requesting user is authorized to access the specified user_id's reports, e.g., by comparing with the authenticated user's ID."
     }
   ],
-  "summary": "The code is vulnerable to path traversal due to unsanitized file input, allowing potential arbitrary file read outside the intended directory."
+  "summary": "The code lacks authentication and authorization checks, allowing unauthorized access to any user's reports by specifying their user_id. Additionally, the 'file' parameter is used without validation in a file path, enabling path traversal attacks."
 }

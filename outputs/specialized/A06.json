@@ -8,5 +8,5 @@
       "recommendation": "Avoid using eval on untrusted input. Use a safe expression parser or evaluator library that does not execute arbitrary code."
     }
   ],
-  "summary": "The code directly evaluates user-provided expressions using eval, which allows arbitrary code execution and poses a critical security risk."
+  "summary": "The endpoint executes user-provided expressions using eval without any validation, leading to a critical code execution vulnerability."
 }

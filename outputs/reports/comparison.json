@@ -6,10 +6,10 @@
     "avg_severity_match": 0.65
   },
   "specialized": {
-    "avg_precision": 0.975,
+    "avg_precision": 0.85,
     "avg_recall": 1.0,
-    "avg_false_positives": 0.05,
-    "avg_severity_match": 0.5
+    "avg_false_positives": 0.3,
+    "avg_severity_match": 1.0
   },
   "baseline_case_results": [
     {
@@ -282,7 +282,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "false_positives": 0,
-      "severity_match": 0.0
+      "severity_match": 1.0
     },
     {
       "case_id": "A02",
@@ -295,7 +295,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "false_positives": 0,
-      "severity_match": 0.0
+      "severity_match": 1.0
     },
     {
       "case_id": "A03",
@@ -308,7 +308,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "false_positives": 0,
-      "severity_match": 0.0
+      "severity_match": 1.0
     },
     {
       "case_id": "A04",
@@ -321,7 +321,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "false_positives": 0,
-      "severity_match": 0.0
+      "severity_match": 1.0
     },
     {
       "case_id": "A05",
@@ -329,12 +329,13 @@
         "sensitive_data_exposure"
       ],
       "predicted_types": [
-        "sensitive_data_exposure"
+        "sensitive_data_exposure",
+        "broken_access_control"
       ],
-      "precision": 1.0,
+      "precision": 0.5,
       "recall": 1.0,
-      "false_positives": 0,
-      "severity_match": 0.0
+      "false_positives": 1,
+      "severity_match": 1.0
     },
     {
       "case_id": "A06",
@@ -355,11 +356,12 @@
         "sensitive_config_exposure"
       ],
       "predicted_types": [
-        "sensitive_config_exposure"
+        "sensitive_config_exposure",
+        "broken_access_control"
       ],
-      "precision": 1.0,
+      "precision": 0.5,
       "recall": 1.0,
-      "false_positives": 0,
+      "false_positives": 1,
       "severity_match": 1.0
     },
     {
@@ -373,7 +375,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "false_positives": 0,
-      "severity_match": 0.0
+      "severity_match": 1.0
     },
     {
       "case_id": "F01",
@@ -399,7 +401,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "false_positives": 0,
-      "severity_match": 0.0
+      "severity_match": 1.0
     },
     {
       "case_id": "F03",
@@ -407,11 +409,12 @@
         "path_traversal"
       ],
       "predicted_types": [
-        "path_traversal"
+        "path_traversal",
+        "broken_access_control"
       ],
-      "precision": 1.0,
+      "precision": 0.5,
       "recall": 1.0,
-      "false_positives": 0,
+      "false_positives": 1,
       "severity_match": 1.0
     },
     {
@@ -425,7 +428,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "false_positives": 0,
-      "severity_match": 0.0
+      "severity_match": 1.0
     },
     {
       "case_id": "F05",
@@ -433,11 +436,12 @@
         "broken_access_control"
       ],
       "predicted_types": [
-        "broken_access_control"
+        "broken_access_control",
+        "idor"
       ],
-      "precision": 1.0,
+      "precision": 0.5,
       "recall": 1.0,
-      "false_positives": 0,
+      "false_positives": 1,
       "severity_match": 1.0
     },
     {
@@ -451,7 +455,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "false_positives": 0,
-      "severity_match": 0.0
+      "severity_match": 1.0
     },
     {
       "case_id": "F07",
@@ -464,7 +468,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "false_positives": 0,
-      "severity_match": 0.0
+      "severity_match": 1.0
     },
     {
       "case_id": "F08",
@@ -513,11 +517,12 @@
         "path_traversal"
       ],
       "predicted_types": [
-        "path_traversal"
+        "path_traversal",
+        "broken_access_control"
       ],
-      "precision": 1.0,
+      "precision": 0.5,
       "recall": 1.0,
-      "false_positives": 0,
+      "false_positives": 1,
       "severity_match": 1.0
     }
   ]

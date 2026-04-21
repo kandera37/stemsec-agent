@@ -2,11 +2,11 @@
   "findings": [
     {
       "type": "command_injection",
-      "severity": "high",
+      "severity": "critical",
       "confidence": "high",
       "evidence": "The 'host' parameter from user input is directly interpolated into a shell command string passed to subprocess.run with shell=True.",
-      "recommendation": "Avoid using shell=True with untrusted input. Use a list of arguments without shell=True, and validate or sanitize the 'host' input to allow only safe characters (e.g., IP addresses or domain names)."
+      "recommendation": "Avoid using shell=True with untrusted input. Use a list of arguments without shell=True or validate and sanitize the 'host' parameter strictly to allow only safe hostnames or IP addresses."
     }
   ],
-  "summary": "The code is vulnerable to command injection because it passes unsanitized user input directly into a shell command with shell=True. This allows an attacker to execute arbitrary commands on the server."
+  "summary": "The code is vulnerable to command injection due to direct interpolation of user input into a shell command executed with shell=True, allowing arbitrary command execution."
 }

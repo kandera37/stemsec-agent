@@ -4,9 +4,16 @@
       "type": "sensitive_config_exposure",
       "severity": "medium",
       "confidence": "high",
-      "evidence": "The /debug/config endpoint returns the entire environment variables via dict(os.environ), exposing potentially sensitive configuration and secrets.",
-      "recommendation": "Remove or restrict access to this endpoint. Avoid exposing full environment variables in production. Implement authentication and limit information disclosure."
+      "evidence": "The /debug/config endpoint returns the entire environment variables dictionary (os.environ) in the response.",
+      "recommendation": "Remove or restrict access to this endpoint in production environments. Avoid exposing environment variables publicly as they may contain sensitive information such as secrets, credentials, or configuration details."
+    },
+    {
+      "type": "broken_access_control",
+      "severity": "high",
+      "confidence": "high",
+      "evidence": "The /debug/config endpoint does not enforce any authentication or authorization, allowing any user to access sensitive environment data.",
+      "recommendation": "Enforce strict authentication and authorization checks on this endpoint or disable it entirely in production to prevent unauthorized access."
     }
   ],
-  "summary": "The code exposes all environment variables through an unauthenticated debug endpoint, leading to sensitive configuration exposure."
+  "summary": "The code exposes all environment variables via an unauthenticated debug endpoint, leading to sensitive configuration exposure and broken access control risks."
 }

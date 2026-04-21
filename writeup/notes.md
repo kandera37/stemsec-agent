@@ -186,3 +186,31 @@ This suggests that the current specialization is much better at deciding **what*
 This is still a meaningful improvement overall.
 
 The first specialization stage successfully reduced overreporting and improved taxonomy consistency, especially on safe and mixed cases. However, severity assignment remains unstable and should be the main focus of the next iteration.
+
+## Specialized v2 observations
+
+The second specialized iteration introduced an explicit severity rubric into the critic stage.
+
+### What improved
+The main gain of v2 is severity calibration.
+
+Compared to the baseline and v1, severity assignment became much more consistent with the benchmark labels. In the current comparison, severity match reached 1.0.
+
+### What regressed
+However, this improvement came with a trade-off.
+
+Compared to specialized v1, the v2 reviewer became less precise and produced more false positives:
+- average precision dropped from 0.975 to 0.85
+- average false positives increased from 0.05 to 0.30
+
+### Interpretation
+This suggests that explicit rubric pressure helps the critic normalize severity labels, but can also make it more willing to preserve or reinterpret findings instead of aggressively removing weak ones.
+
+### Current conclusion
+At this point, the project shows a meaningful and realistic trade-off across three stages:
+
+- baseline: broad but noisy
+- specialized v1: much cleaner and more disciplined
+- specialized v2: better calibrated severity, but somewhat less strict about overreporting
+
+This is a useful result rather than a failure, because it shows that different specialization mechanisms improve different aspects of reviewer behavior.

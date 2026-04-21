@@ -2,11 +2,11 @@
   "findings": [
     {
       "type": "ssrf",
-      "severity": "medium",
+      "severity": "high",
       "confidence": "high",
-      "evidence": "The endpoint /fetch accepts a user-controlled URL and directly uses it in requests.get without any validation or allowlisting.",
-      "recommendation": "Implement strict validation or an allowlist of permitted domains to prevent Server-Side Request Forgery (SSRF) attacks."
+      "evidence": "The endpoint fetch_remote_page accepts a user-controlled URL (payload.url) and directly uses it in requests.get without any validation or allowlisting.",
+      "recommendation": "Implement strict validation or an allowlist of permitted domains/URLs before making outbound requests to prevent Server-Side Request Forgery (SSRF) attacks."
     }
   ],
-  "summary": "The code allows arbitrary URLs to be fetched without validation, exposing a potential SSRF vulnerability."
+  "summary": "The code allows an attacker to supply arbitrary URLs to the /fetch endpoint, which are then fetched by the server without validation. This creates a high risk of SSRF attacks. No other security issues were identified."
 }

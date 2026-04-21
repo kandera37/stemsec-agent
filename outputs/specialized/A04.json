@@ -2,7 +2,7 @@
   "findings": [
     {
       "type": "xss",
-      "severity": "high",
+      "severity": "medium",
       "confidence": "high",
       "evidence": "The 'name' query parameter is directly embedded into an HTML response without any escaping or sanitization: return f\"<h1>Hello, {name}!</h1>\"",
       "recommendation": "Escape or sanitize the 'name' parameter before embedding it into the HTML response to prevent cross-site scripting attacks. Use templating engines or built-in escaping functions."

@@ -98,3 +98,22 @@ Allowed finding types:
 
 Return structured JSON only, in the same format as the original reviewer.
 """
+
+SEVERITY_RUBRIC = """
+Severity rubric for this benchmark:
+
+- critical:
+  arbitrary code execution or near-arbitrary server-side command/code execution
+  examples: command_injection, unsafe_eval
+
+- high:
+  vulnerabilities that can expose sensitive resources, bypass authorization, or significantly expand attacker reach
+  examples: sql_injection, ssrf, path_traversal, broken_access_control, idor, insecure_file_upload
+
+- medium:
+  meaningful but more limited security issues
+  examples: xss, hardcoded_secret, open_redirect, sensitive_data_exposure, sensitive_config_exposure
+
+- low:
+  minor or weakly evidenced security concerns with limited direct impact
+"""
