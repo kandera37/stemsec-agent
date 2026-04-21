@@ -164,3 +164,25 @@ The specialized reviewer often predicts the correct vulnerability type, but the 
 Specialized v1 already provides a meaningful improvement over the baseline in taxonomy consistency and false-positive control.
 
 However, severity assignment still needs additional work, so the next improvement step should focus on a more explicit severity rubric rather than broader retrieval or more architectural complexity.
+
+## Baseline vs specialized v1 comparison
+
+The first quantitative comparison between the baseline reviewer and the specialized reviewer shows a clear trade-off.
+
+### Main improvements
+Compared to the baseline, specialized v1 improved:
+- average precision: 0.79 → 0.975
+- average false positives: 0.35 → 0.05
+
+Importantly, recall remained at 1.0, which means the specialization improved output discipline without reducing vulnerability coverage.
+
+### Main remaining weakness
+The main regression is severity calibration:
+- average severity match: 0.65 → 0.50
+
+This suggests that the current specialization is much better at deciding **what** to report, but still not reliable enough at deciding **how severe** the issue should be.
+
+### Interpretation
+This is still a meaningful improvement overall.
+
+The first specialization stage successfully reduced overreporting and improved taxonomy consistency, especially on safe and mixed cases. However, severity assignment remains unstable and should be the main focus of the next iteration.
