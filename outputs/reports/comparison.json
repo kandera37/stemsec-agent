@@ -11,6 +11,12 @@
     "avg_false_positives": 0.3,
     "avg_severity_match": 1.0
   },
+  "hybrid": {
+    "avg_precision": 0.85,
+    "avg_recall": 1.0,
+    "avg_false_positives": 0.3,
+    "avg_severity_match": 0.9
+  },
   "baseline_case_results": [
     {
       "case_id": "A01",
@@ -469,6 +475,262 @@
       "recall": 1.0,
       "false_positives": 0,
       "severity_match": 1.0
+    },
+    {
+      "case_id": "F08",
+      "expected_findings": [
+        "insecure_file_upload"
+      ],
+      "predicted_types": [
+        "path_traversal",
+        "insecure_file_upload"
+      ],
+      "precision": 0.5,
+      "recall": 1.0,
+      "false_positives": 1,
+      "severity_match": 1.0
+    },
+    {
+      "case_id": "S01",
+      "expected_findings": [],
+      "predicted_types": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": 0,
+      "severity_match": 1.0
+    },
+    {
+      "case_id": "S02",
+      "expected_findings": [],
+      "predicted_types": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": 0,
+      "severity_match": 1.0
+    },
+    {
+      "case_id": "S03",
+      "expected_findings": [],
+      "predicted_types": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": 0,
+      "severity_match": 1.0
+    },
+    {
+      "case_id": "S04",
+      "expected_findings": [
+        "path_traversal"
+      ],
+      "predicted_types": [
+        "path_traversal",
+        "broken_access_control"
+      ],
+      "precision": 0.5,
+      "recall": 1.0,
+      "false_positives": 1,
+      "severity_match": 1.0
+    }
+  ],
+  "hybrid_case_results": [
+    {
+      "case_id": "A01",
+      "expected_findings": [
+        "sql_injection"
+      ],
+      "predicted_types": [
+        "sql_injection"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": 0,
+      "severity_match": 1.0
+    },
+    {
+      "case_id": "A02",
+      "expected_findings": [
+        "ssrf"
+      ],
+      "predicted_types": [
+        "ssrf"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": 0,
+      "severity_match": 1.0
+    },
+    {
+      "case_id": "A03",
+      "expected_findings": [
+        "broken_access_control"
+      ],
+      "predicted_types": [
+        "broken_access_control"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": 0,
+      "severity_match": 1.0
+    },
+    {
+      "case_id": "A04",
+      "expected_findings": [
+        "xss"
+      ],
+      "predicted_types": [
+        "xss"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": 0,
+      "severity_match": 1.0
+    },
+    {
+      "case_id": "A05",
+      "expected_findings": [
+        "sensitive_data_exposure"
+      ],
+      "predicted_types": [
+        "sensitive_data_exposure",
+        "broken_access_control"
+      ],
+      "precision": 0.5,
+      "recall": 1.0,
+      "false_positives": 1,
+      "severity_match": 1.0
+    },
+    {
+      "case_id": "A06",
+      "expected_findings": [
+        "unsafe_eval"
+      ],
+      "predicted_types": [
+        "unsafe_eval"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": 0,
+      "severity_match": 1.0
+    },
+    {
+      "case_id": "A07",
+      "expected_findings": [
+        "sensitive_config_exposure"
+      ],
+      "predicted_types": [
+        "sensitive_config_exposure",
+        "broken_access_control"
+      ],
+      "precision": 0.5,
+      "recall": 1.0,
+      "false_positives": 1,
+      "severity_match": 0.0
+    },
+    {
+      "case_id": "A08",
+      "expected_findings": [
+        "idor"
+      ],
+      "predicted_types": [
+        "idor"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": 0,
+      "severity_match": 1.0
+    },
+    {
+      "case_id": "F01",
+      "expected_findings": [
+        "sql_injection"
+      ],
+      "predicted_types": [
+        "sql_injection"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": 0,
+      "severity_match": 1.0
+    },
+    {
+      "case_id": "F02",
+      "expected_findings": [
+        "xss"
+      ],
+      "predicted_types": [
+        "xss"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": 0,
+      "severity_match": 1.0
+    },
+    {
+      "case_id": "F03",
+      "expected_findings": [
+        "path_traversal"
+      ],
+      "predicted_types": [
+        "path_traversal",
+        "broken_access_control"
+      ],
+      "precision": 0.5,
+      "recall": 1.0,
+      "false_positives": 1,
+      "severity_match": 1.0
+    },
+    {
+      "case_id": "F04",
+      "expected_findings": [
+        "command_injection"
+      ],
+      "predicted_types": [
+        "command_injection"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": 0,
+      "severity_match": 1.0
+    },
+    {
+      "case_id": "F05",
+      "expected_findings": [
+        "broken_access_control"
+      ],
+      "predicted_types": [
+        "broken_access_control",
+        "idor"
+      ],
+      "precision": 0.5,
+      "recall": 1.0,
+      "false_positives": 1,
+      "severity_match": 1.0
+    },
+    {
+      "case_id": "F06",
+      "expected_findings": [
+        "hardcoded_secret"
+      ],
+      "predicted_types": [
+        "hardcoded_secret"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": 0,
+      "severity_match": 1.0
+    },
+    {
+      "case_id": "F07",
+      "expected_findings": [
+        "open_redirect"
+      ],
+      "predicted_types": [
+        "open_redirect"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": 0,
+      "severity_match": 0.0
     },
     {
       "case_id": "F08",

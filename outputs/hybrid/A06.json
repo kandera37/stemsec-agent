@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "unsafe_eval",
+      "severity": "critical",
+      "confidence": "high",
+      "evidence": "The code uses eval(payload.expression) directly on user input without any validation or sanitization.",
+      "recommendation": "Avoid using eval on untrusted input. Use a safe expression parser or evaluator library that does not execute arbitrary code."
+    }
+  ],
+  "summary": "The endpoint executes user-provided expressions using eval without any validation, leading to a critical code execution vulnerability."
+}

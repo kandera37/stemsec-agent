@@ -1,0 +1,4 @@
+{
+  "findings": [],
+  "summary": "The code implements a redirect endpoint that uses a whitelist (ALLOWED_PATHS) to validate the 'next' parameter before redirecting. This effectively prevents open redirect vulnerabilities by restricting redirects to known safe paths. No security issues are identified."
+}

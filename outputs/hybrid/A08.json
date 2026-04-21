@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "idor",
+      "severity": "high",
+      "confidence": "high",
+      "evidence": "The endpoint /invoice accepts invoice_id and current_user_id as query parameters but does not verify that the current_user_id matches the owner_id of the requested invoice. This allows any user to access any invoice by changing the invoice_id parameter.",
+      "recommendation": "Implement authorization checks to ensure that the current_user_id matches the owner_id of the invoice before returning the invoice data."
+    }
+  ],
+  "summary": "The code lacks proper access control, allowing users to access invoices they do not own by manipulating the invoice_id parameter, resulting in an Insecure Direct Object Reference (IDOR) vulnerability."
+}

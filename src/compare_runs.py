@@ -4,9 +4,9 @@ from pathlib import Path
 from benchmark import load_all_cases
 from evaluator import evaluate_case, load_agent_output
 
-
 BASELINE_DIR = Path("outputs/baseline")
 SPECIALIZED_DIR = Path("outputs/specialized")
+HYBRID_DIR = Path("outputs/hybrid")
 REPORTS_DIR = Path("outputs/reports")
 
 
@@ -32,10 +32,12 @@ def main() -> None:
 
     baseline_results = []
     specialized_results = []
+    hybrid_results = []
 
     for case in cases:
         baseline_path = BASELINE_DIR / f"{case.id}.json"
         specialized_path = SPECIALIZED_DIR / f"{case.id}.json"
+        hybrid_path = HYBRID_DIR / f"{case.id}.json"
 
         if baseline_path.exists():
             baseline_output = load_agent_output(baseline_path)
@@ -45,14 +47,21 @@ def main() -> None:
             specialized_output = load_agent_output(specialized_path)
             specialized_results.append(evaluate_case(case, specialized_output))
 
+        if hybrid_path.exists():
+            hybrid_output = load_agent_output(hybrid_path)
+            hybrid_results.append(evaluate_case(case, hybrid_output))
+
     baseline_summary = summarize(baseline_results)
     specialized_summary = summarize(specialized_results)
+    hybrid_summary = summarize(hybrid_results)
 
     comparison = {
         "baseline": baseline_summary,
         "specialized": specialized_summary,
+        "hybrid": hybrid_summary,
         "baseline_case_results": baseline_results,
         "specialized_case_results": specialized_results,
+        "hybrid_case_results": hybrid_results,
     }
 
     report_path = REPORTS_DIR / "comparison.json"
@@ -64,6 +73,9 @@ def main() -> None:
 
     print("\n=== SPECIALIZED SUMMARY ===")
     print(json.dumps(specialized_summary, indent=2, ensure_ascii=False))
+
+    print("\n=== HYBRID SUMMARY ===")
+    print(json.dumps(hybrid_summary, indent=2, ensure_ascii=False))
 
     print(f"\nSaved comparison report to: {report_path}")
 

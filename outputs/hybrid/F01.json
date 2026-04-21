@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "sql_injection",
+      "severity": "high",
+      "confidence": "high",
+      "evidence": "query = f\"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'\"",
+      "recommendation": "Use parameterized queries or prepared statements to safely include user input in SQL queries, e.g., cursor.execute(\"SELECT * FROM users WHERE username = ? AND password = ?\", (username, password))"
+    }
+  ],
+  "summary": "The code is vulnerable to SQL injection due to unsafe string interpolation of user input in the SQL query. No other security issues were identified in this snippet."
+}

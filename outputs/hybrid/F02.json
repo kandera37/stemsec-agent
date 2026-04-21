@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "xss",
+      "severity": "medium",
+      "confidence": "high",
+      "evidence": "The user input 'query' from request.args is directly embedded into an HTML string via render_template_string using f-string interpolation without escaping.",
+      "recommendation": "Use template variables with automatic escaping instead of string interpolation, e.g. pass 'query' as a parameter to render_template or render_template_string with placeholders."
+    }
+  ],
+  "summary": "The code is vulnerable to reflected cross-site scripting (XSS) because user input is directly rendered into HTML without escaping."
+}

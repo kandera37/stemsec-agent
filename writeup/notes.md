@@ -214,3 +214,26 @@ At this point, the project shows a meaningful and realistic trade-off across thr
 - specialized v2: better calibrated severity, but somewhat less strict about overreporting
 
 This is a useful result rather than a failure, because it shows that different specialization mechanisms improve different aspects of reviewer behavior.
+
+## Hybrid reviewer observations
+
+A final hybrid variant was tested in order to combine the strengths of earlier specialized versions.
+
+The idea was:
+- use the cleaner finding selection behavior from earlier specialization
+- then apply a separate severity-only calibration pass
+
+### Result
+The hybrid reviewer did not outperform specialized v2.
+
+Its overall precision and false-positive behavior remained similar to the specialized severity-focused version, while severity calibration was slightly worse than v2.
+
+### Interpretation
+This suggests that simply separating finding selection and severity reassignment is not enough to produce a stronger final reviewer in the current setup.
+
+In this benchmark, the specialized severity-aware reviewer already captures most of the gains that the hybrid design was supposed to provide.
+
+### Conclusion
+The hybrid attempt was still useful because it tested a plausible engineering idea and showed that additional architectural complexity does not automatically improve results.
+
+This reinforces an important lesson from the project: specialization can help, but each added stage must justify its complexity with measurable gains.

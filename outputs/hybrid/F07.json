@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "open_redirect",
+      "severity": "high",
+      "confidence": "high",
+      "evidence": "The 'next' parameter from the query string is used directly in the redirect without validation or allowlisting.",
+      "recommendation": "Validate the 'next' parameter against a list of allowed URLs or ensure it is a relative path to prevent open redirect vulnerabilities."
+    }
+  ],
+  "summary": "The code contains an open redirect vulnerability because the redirect target is directly controlled by user input without validation."
+}

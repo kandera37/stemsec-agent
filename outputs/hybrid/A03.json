@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "broken_access_control",
+      "severity": "high",
+      "confidence": "high",
+      "evidence": "The /admin/stats endpoint does not enforce any authentication or authorization checks, allowing any user to access potentially sensitive administrative statistics.",
+      "recommendation": "Implement proper authentication and authorization checks to restrict access to the /admin/stats endpoint only to authorized admin users."
+    }
+  ],
+  "summary": "The /admin/stats endpoint exposes sensitive administrative statistics without any access control, resulting in a broken access control vulnerability. No other security issues were identified."
+}

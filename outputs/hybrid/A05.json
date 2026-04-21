@@ -1,0 +1,19 @@
+{
+  "findings": [
+    {
+      "type": "sensitive_data_exposure",
+      "severity": "medium",
+      "confidence": "high",
+      "evidence": "The authorization header value is logged directly via logger.info(\"Authorization header: %s\", authorization).",
+      "recommendation": "Avoid logging sensitive headers such as Authorization tokens to prevent leakage of credentials in logs."
+    },
+    {
+      "type": "broken_access_control",
+      "severity": "high",
+      "confidence": "high",
+      "evidence": "The /profile endpoint accepts an Authorization header but does not enforce any authentication or authorization checks before returning a response.",
+      "recommendation": "Implement proper authentication and authorization checks to ensure only authorized users can access profile information."
+    }
+  ],
+  "summary": "The code logs sensitive authorization headers and does not enforce authentication or authorization on the /profile endpoint, leading to potential sensitive data exposure and broken access control."
+}
