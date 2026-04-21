@@ -135,3 +135,32 @@ These weaknesses are exactly what makes the specialization stage meaningful. The
 - severity calibration
 
 This supports the main project hypothesis: a generic reviewer can be improved by specializing it into a more structured web-security reviewer.
+
+## Specialized v1 observations
+
+The first specialized version introduced three changes compared to the baseline:
+- taxonomy-aware prompting
+- checklist-guided review
+- a critic pass over draft findings
+
+### What improved
+The most visible improvement is output discipline.
+
+1. **Better taxonomy consistency**
+   The specialized reviewer now uses the intended benchmark labels much more consistently, such as `sql_injection`, `ssrf`, `xss`, `idor`, and `broken_access_control`.
+
+2. **Better handling of safe cases**
+   The specialized reviewer performs better than the baseline on several safe or borderline cases. In particular, it avoids some false positives that the baseline produced on safe SQL and safe redirect examples.
+
+3. **Critic helps reduce overreporting**
+   On several mixed or noisy cases, the critic removes secondary findings that are not central to the benchmark ground truth. This improves precision and makes the output more aligned with the intended evaluation setup.
+
+### What did not improve enough
+The main remaining weakness is severity calibration.
+
+The specialized reviewer often predicts the correct vulnerability type, but the critic sometimes shifts severity in the wrong direction. In other words, the system is becoming more disciplined about *what* it reports, but not yet reliably disciplined about *how severe* the issue should be.
+
+### Current conclusion
+Specialized v1 already provides a meaningful improvement over the baseline in taxonomy consistency and false-positive control.
+
+However, severity assignment still needs additional work, so the next improvement step should focus on a more explicit severity rubric rather than broader retrieval or more architectural complexity.

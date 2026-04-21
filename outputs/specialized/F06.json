@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "hardcoded_secret",
+      "severity": "high",
+      "confidence": "high",
+      "evidence": "app.secret_key = \"super_secret_123\"",
+      "recommendation": "Do not hardcode secret keys in source code. Use environment variables or secure secret management solutions to store sensitive configuration values."
+    }
+  ],
+  "summary": "The code snippet contains a hardcoded secret key, which poses a significant security risk if the source code is exposed. No other security issues were identified in this minimal Flask application."
+}

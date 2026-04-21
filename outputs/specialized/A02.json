@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "ssrf",
+      "severity": "medium",
+      "confidence": "high",
+      "evidence": "The endpoint /fetch accepts a user-controlled URL and directly uses it in requests.get without any validation or allowlisting.",
+      "recommendation": "Implement strict validation or an allowlist of permitted domains to prevent Server-Side Request Forgery (SSRF) attacks."
+    }
+  ],
+  "summary": "The code allows arbitrary URLs to be fetched without validation, exposing a potential SSRF vulnerability."
+}

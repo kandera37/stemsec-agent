@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "sensitive_data_exposure",
+      "severity": "high",
+      "confidence": "high",
+      "evidence": "The authorization header value is logged directly via logger.info(\"Authorization header: %s\", authorization).",
+      "recommendation": "Avoid logging sensitive headers such as Authorization tokens to prevent leakage of credentials in logs."
+    }
+  ],
+  "summary": "The code logs sensitive authorization headers, leading to potential sensitive data exposure."
+}

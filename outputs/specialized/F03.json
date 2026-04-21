@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "path_traversal",
+      "severity": "high",
+      "confidence": "high",
+      "evidence": "The 'filename' parameter from user input is directly joined with BASE_DIR and passed to send_file without validation or sanitization, allowing path traversal (e.g., using '../') to access arbitrary files outside the intended directory.",
+      "recommendation": "Validate and sanitize the 'filename' parameter to ensure it does not contain path traversal sequences. Use secure methods such as checking the resolved absolute path is within BASE_DIR or use a whitelist of allowed filenames."
+    }
+  ],
+  "summary": "The code is vulnerable to path traversal attacks due to unsanitized user input used in file path construction. This could allow unauthorized access to files outside the intended directory."
+}

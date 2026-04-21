@@ -1,0 +1,12 @@
+{
+  "findings": [
+    {
+      "type": "idor",
+      "severity": "medium",
+      "confidence": "high",
+      "evidence": "The endpoint /invoice returns invoice data based on invoice_id without verifying that current_user_id matches the invoice owner_id.",
+      "recommendation": "Implement authorization checks to ensure that the current_user_id matches the owner_id of the requested invoice before returning the invoice data."
+    }
+  ],
+  "summary": "The code exposes an Insecure Direct Object Reference (IDOR) vulnerability by returning invoice data without verifying ownership. This allows any user to access any invoice by changing the invoice_id parameter."
+}
