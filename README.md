@@ -1,12 +1,12 @@
 # StemSec Agent
 
-A small experimental project exploring how a generic code-review agent can be specialized into a more disciplined security reviewer for Python web backend snippets.
+A small experimental project exploring how a generic code-review agent can be specialized into a more structured and reliable security reviewer for Python web backend snippets.
 
 ## Project idea
 
 This project investigates a simple stem-agent setup for **web security code review**.
 
-The starting point is a **generic baseline reviewer** that analyzes small backend code snippets and reports security issues.  
+The starting point is a **generic baseline reviewer** that analyzes small backend code snippets and reports security issues.
 The project then introduces increasingly specialized review stages to improve:
 
 - taxonomy consistency
@@ -53,7 +53,7 @@ Each case has:
 ## Project stages
 
 ### 1. Baseline reviewer
-A simple single-step reviewer:
+A simple single-step reviewer with:
 - one system prompt
 - one user prompt
 - no checklist
@@ -61,21 +61,17 @@ A simple single-step reviewer:
 - no severity rubric
 
 ### 2. Specialized reviewer v1
-Adds:
+A structured reviewer with:
 - taxonomy-aware prompting
 - checklist-guided review
 - critic pass
 
-This version improves output discipline and reduces false positives.
-
 ### 3. Specialized reviewer v2
-Adds:
+A severity-aware reviewer with:
 - explicit severity rubric in the critic stage
 
-This version improves severity calibration, but introduces a trade-off in precision.
-
 ### 4. Hybrid reviewer
-A final hybrid attempt was tested to combine:
+A hybrid reviewer combining:
 - cleaner finding selection
 - separate severity recalibration
 
@@ -154,12 +150,16 @@ python3 src/run_specialized.py
 python3 src/run_hybrid.py
 ```
 
+### Compare results
+```bash
+python3 src/compare_runs.py
+```
+
 ## Current status
-The project is functionally complete enough to demonstrate:
+The project is complete enough to present:
 
-- a benchmarked baseline 
-- multiple specialization attempts 
-- measurable before/after comparison 
+- a benchmarked baseline reviewer
+- multiple specialization attempts
+- measurable before/after comparison
 - a realistic trade-off between precision and severity calibration
-
-The remaining work is mainly write-up and final presentation.
+- a final write-up and runnable project structure
