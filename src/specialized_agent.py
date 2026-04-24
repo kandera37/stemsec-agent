@@ -39,6 +39,7 @@ Code:
 Return JSON only.
 """.strip()
 
+
 def build_critic_user_prompt(code: str, draft_json: str) -> str:
     return f"""
 Review the following code snippet and the draft security findings produced by another agent.
@@ -63,9 +64,11 @@ Please remove unsupported findings, keep supported ones, normalize labels to the
 Return JSON only.
 """.strip()
 
+
 def create_client() -> OpenAI:
     api_key = os.environ["OPENAI_API_KEY"].strip()
     return OpenAI(api_key=api_key)
+
 
 def parse_json_response(content: str) -> dict:
     content = content.strip()
@@ -78,6 +81,7 @@ def parse_json_response(content: str) -> dict:
         content = content[:-3].strip()
 
     return json.loads(content)
+
 
 def run_specialized_review(code: str, model: str | None = None) -> dict:
     client = create_client()
@@ -108,6 +112,7 @@ def run_specialized_review(code: str, model: str | None = None) -> dict:
     print("CRITIC OUTPUT:\n", final_content)
 
     return parse_json_response(final_content)
+
 
 if __name__ == "__main__":
     snippet_path = Path("data/benchmark/snippets/F01.py")

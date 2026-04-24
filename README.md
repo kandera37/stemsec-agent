@@ -109,7 +109,7 @@ In the current setup, it did not outperform the best specialized version overall
 
 - `data/benchmark/cases/` — ground-truth labels for benchmark cases
 - `data/benchmark/snippets/` — code snippets to review
-- `data/knowledge/` — checklist and vulnerability-pattern knowledge
+- `data/knowledge/` — security checklist used by the specialized reviewer
 - `outputs/baseline/` — baseline reviewer outputs
 - `outputs/specialized/` — specialized reviewer outputs
 - `outputs/hybrid/` — hybrid reviewer outputs

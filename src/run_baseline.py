@@ -30,7 +30,7 @@ def main() -> None:
             result = {
                 "error": str(error),
                 "findings": [],
-                "summary": "Baseline run failed."
+                "summary": "Baseline run failed.",
             }
 
         output_path = OUTPUT_DIR / f"{case.id}.json"

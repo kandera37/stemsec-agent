@@ -7,7 +7,9 @@ from openai import OpenAI
 
 from prompts import BASELINE_SYSTEM_PROMPT
 
-load_dotenv()
+ROOT_DIR = Path(__file__).resolve().parent.parent
+ENV_PATH = ROOT_DIR / ".env"
+load_dotenv(dotenv_path=ENV_PATH, override=True)
 
 
 def load_snippet(snippet_path: Path) -> str:
@@ -26,9 +28,11 @@ Code:
 Return JSON only.
 """.strip()
 
+
 def create_client() -> OpenAI:
     api_key = os.environ["OPENAI_API_KEY"].strip()
     return OpenAI(api_key=api_key)
+
 
 def parse_json_response(content: str) -> dict:
     content = content.strip()
@@ -41,6 +45,7 @@ def parse_json_response(content: str) -> dict:
         content = content[:-3].strip()
 
     return json.loads(content)
+
 
 def run_baseline_review(code: str, model: str | None = None) -> dict:
     client = create_client()
@@ -59,6 +64,7 @@ def run_baseline_review(code: str, model: str | None = None) -> dict:
     print("RAW MODEL OUTPUT:\n", content)
 
     return parse_json_response(content)
+
 
 if __name__ == "__main__":
     snippet_path = Path("data/benchmark/snippets/F01.py")

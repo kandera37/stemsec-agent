@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 import yaml
 
@@ -22,7 +21,7 @@ def load_case(case_path: Path) -> BenchmarkCase:
     )
 
 
-def load_all_cases(cases_dir: str = "data/benchmark/cases") -> List[BenchmarkCase]:
+def load_all_cases(cases_dir: str = "data/benchmark/cases") -> list[BenchmarkCase]:
     case_paths = sorted(Path(cases_dir).glob("*.yaml"))
     return [load_case(path) for path in case_paths]
 

@@ -1,5 +1,7 @@
 # StemSec Agent — project notes
 
+> Working notes. This file records the project evolution and includes both planned ideas and observations from completed runs. The final submission write-up is in `final_writeup.md`.
+
 ## Working title
 
 StemSec Agent: A Self-Specializing Agent for Web Security Code Review

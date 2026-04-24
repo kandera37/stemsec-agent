@@ -30,7 +30,7 @@ def main() -> None:
             result = {
                 "error": str(error),
                 "findings": [],
-                "summary": "Hybrid run failed."
+                "summary": "Hybrid run failed.",
             }
 
         output_path = OUTPUT_DIR / f"{case.id}.json"

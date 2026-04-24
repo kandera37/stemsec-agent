@@ -7,4 +7,4 @@ expected_findings:
   - insecure_file_upload
 severity:
   insecure_file_upload: high
-short_rationale: Uploaded files are accepted and stored without robust validation of filename, type, extension, or destination path.
+short_rationale: Uploaded files are accepted and stored without robust validation of file type, extension, or content, making insecure file upload the primary issue in this case.

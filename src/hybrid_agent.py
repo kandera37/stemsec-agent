@@ -68,6 +68,7 @@ Only correct severity labels if needed, using the provided rubric.
 Return JSON only.
 """.strip()
 
+
 def run_hybrid_review(case_id: str, code: str, model: str | None = None) -> dict:
     client = create_client()
     model_name = model or os.environ.get("OPENAI_MODEL", "gpt-4.1-mini")
@@ -88,6 +89,7 @@ def run_hybrid_review(case_id: str, code: str, model: str | None = None) -> dict
     print("HYBRID OUTPUT:\n", content)
 
     return parse_json_response(content)
+
 
 if __name__ == "__main__":
     case_id = "F01"

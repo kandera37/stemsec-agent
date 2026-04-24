@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from typing import Dict, List
 
 
 @dataclass
@@ -9,8 +8,8 @@ class BenchmarkCase:
     title: str
     is_safe: bool
     ambiguous: bool
-    expected_findings: List[str]
-    severity: Dict[str, str]
+    expected_findings: list[str]
+    severity: dict[str, str]
     short_rationale: str
 
 
@@ -25,5 +24,5 @@ class Finding:
 
 @dataclass
 class AgentOutput:
-    findings: List[Finding]
+    findings: list[Finding]
     summary: str
